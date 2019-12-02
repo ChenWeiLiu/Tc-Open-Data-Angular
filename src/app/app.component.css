@@ -1,0 +1,13 @@
+.demo-app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.demo-app-container,
+.demo-app-sidenav {
+  padding-top: 64px;
+  text-align: left;
+  height: calc(200vh - 64px);
+}

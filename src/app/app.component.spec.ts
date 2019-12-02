@@ -19,13 +19,13 @@ describe('AppComponent', () => {
   it(`should have as title 'tc-api'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('tc-api');
+    expect(app.title).toEqual('components-api');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('tc-api app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('components-api app is running!');
   });
 });
