@@ -1,0 +1,7 @@
+{
+  "/tc-api": {
+    "target": "https://www2.tc.edu.tw",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
