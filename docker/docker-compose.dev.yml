@@ -1,0 +1,19 @@
+version: "3.5"
+
+services:
+  angular-test:
+    ports:
+      - 4201:4200
+    build:
+      context: ../
+      dockerfile: Dockerfile.dev
+    container_name: "components-api"
+    volumes:
+      - ../src:/usr/src/app/src
+#      - ../config:/usr/src/app/config
+#      - ../mock:/usr/src/app/mock
+
+networks:
+  default:
+    external:
+      name: docker_registration-django-net

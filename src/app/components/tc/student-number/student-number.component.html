@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-card-title>學生資料統計</mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+      <label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="資料尋找" />
+      </label>
+    </mat-form-field>
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="district">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>行政區</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.district }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="schoolNo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>學校編號</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.schoolNo }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="schoolName">
+        <mat-header-cell *matHeaderCellDef>學校名稱</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.schoolName }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="duration">
+        <mat-header-cell *matHeaderCellDef>學制</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.duration }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="boyNum">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>全校男生人數</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.boyNum }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="girlNum">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>全校女生人數</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.girlNum }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="totalNum">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>全校學生總數</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.totalNum }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="management">
+        <mat-header-cell *matHeaderCellDef>更多</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-raised-button (click)="openDialog(row.details)">更多細節</button>
+
+          <!--          <ul *ngFor="let detail of row.details | keyvalue">-->
+<!--            <li>{{detail.key}}-{{detail.value.boy}}</li>-->
+<!--            <li>{{detail.key}}-{{detail.value.girl}}</li>-->
+<!--            <li>{{detail.key}}-{{detail.value.total}}</li>-->
+<!--          </ul>-->
+        </mat-cell>
+      </ng-container>
+      <mat-header-row
+        *matHeaderRowDef="['district','schoolNo','schoolName','duration','boyNum','girlNum','totalNum','management']"></mat-header-row>
+      <mat-row
+        *matRowDef="let row; columns: ['district','schoolNo', 'schoolName','duration','boyNum','girlNum','totalNum','management']"></mat-row>
+    </mat-table>
+    <mat-paginator #paginator
+                   [length]="totalCount"
+                   [pageIndex]="0"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 15, 50]">
+    </mat-paginator>
+  </mat-card-content>
+</mat-card>

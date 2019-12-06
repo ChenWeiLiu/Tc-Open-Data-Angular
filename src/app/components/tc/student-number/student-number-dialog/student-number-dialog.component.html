@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>
+  更多細節
+</h2>
+
+<mat-dialog-content class="post-form">
+  <mat-table [dataSource]="studentNumber" matSort>
+    <ng-container matColumnDef="schoolClassName">
+      <mat-header-cell *matHeaderCellDef>班級</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.schoolClassName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="boy">
+      <mat-header-cell *matHeaderCellDef>男</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.boy }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="girl">
+      <mat-header-cell *matHeaderCellDef>女</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.girl }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="total">
+      <mat-header-cell *matHeaderCellDef>總和</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.total }}</mat-cell>
+    </ng-container>
+    <mat-header-row
+      *matHeaderRowDef="['schoolClassName','boy','girl','total']"></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: ['schoolClassName','boy','girl','total']"></mat-row>
+  </mat-table>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close  color="primary" center>關閉</button>
+</mat-dialog-actions>
