@@ -8,12 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { StudentNumberComponent } from './components/tc/student-number/student-number.component';
+import { StudentNumberDialogComponent } from './components/tc/student-number/student-number-dialog/student-number-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentNumberComponent
+    StudentNumberComponent,
+    StudentNumberDialogComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -22,6 +25,10 @@ import { StudentNumberComponent } from './components/tc/student-number/student-n
     HttpClientModule,
     BrowserAnimationsModule,
     SharedMaterialModule,
+  ],
+  entryComponents: [
+    StudentNumberDialogComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
